@@ -15,7 +15,7 @@ public class DemoRouteLocatorConfiguration {
     public RouteLocator demoRoute(RouteLocatorBuilder builder) {
         return builder.routes().route(p -> p.method(HttpMethod.GET)
                 .and()
-                .path("/sn")
+                .path("/sn", "/sendNotify")
                 .filters(f ->
                         f.addRequestHeader("Hello", "World!")
 //                                .changeRequestUri(exchange -> {

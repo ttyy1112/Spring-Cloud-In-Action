@@ -24,7 +24,8 @@ public class DemoRouteDefinitionRopsitory implements RouteDefinitionRepository {
         PredicateDefinition predicateDefinition = new PredicateDefinition();
         predicateDefinition.setName(NameUtils.normalizeRoutePredicateName(PathRoutePredicateFactory.class));
         HashMap<String, String> args = new HashMap<>();
-        args.put("pattern", "/sn");
+        args.put("pattern.0", "/sn");
+        args.put("pattern.1", "/sendNotify");
         predicateDefinition.setArgs(args);
         predicates.add(predicateDefinition);
 

@@ -1,0 +1,6 @@
+demo:
+  args:
+    list:
+    - a
+    - b
+    - c
