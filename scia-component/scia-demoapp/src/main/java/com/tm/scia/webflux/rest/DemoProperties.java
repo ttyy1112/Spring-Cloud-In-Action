@@ -10,6 +10,8 @@ import java.util.Map;
 public class DemoProperties {
     private Map<String, String> args;
 
+    private String[] array;
+
 
     public Map<String, String> getArgs() {
         return args;
@@ -17,5 +19,14 @@ public class DemoProperties {
 
     public void setArgs(Map<String, String> args) {
         this.args = args;
+    }
+
+
+    public String[] getArray() {
+        return array;
+    }
+
+    public void setArray(String[] array) {
+        this.array = array;
     }
 }

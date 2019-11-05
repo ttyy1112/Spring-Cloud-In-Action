@@ -4,3 +4,6 @@ demo:
     - a
     - b
     - c
+  array:
+  - a1
+  - a2

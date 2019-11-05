@@ -1,2 +1,21 @@
 server:
   port: 8081
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: addUserCode
+          uri: http://localhost:8080/
+          filters:
+            - AddRequestHeader=userCode, Toman
+          predicates:
+            - Path=/demo/header
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway:
+            handler:
+              RoutePredicateHandlerMapping: debug
