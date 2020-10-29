@@ -1,3 +1,6 @@
+server:
+  port: 1601
+
 demo:
   args:
     list:

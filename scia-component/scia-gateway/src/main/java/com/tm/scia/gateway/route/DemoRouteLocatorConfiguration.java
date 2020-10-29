@@ -33,4 +33,22 @@ public class DemoRouteLocatorConfiguration {
                         .uri("http://localhost:8080").order(-1)
         ).build();
     }
+
+    @Bean
+    RouteLocator petPick2(RouteLocatorBuilder builder) {
+        return builder.routes().route(
+                predicateSpec -> predicateSpec.path("/game2/animal/get")
+                        .filters(filterSpec -> filterSpec.addRequestHeader("From", "chainetgw.jd.com"))
+                        .uri("http://gwdemo.jd.com:8001").order(0)
+        ).build();
+    }
+
+    @Bean
+    RouteLocator petPick(RouteLocatorBuilder builder) {
+        return builder.routes().route(
+                predicateSpec -> predicateSpec.path("/game/animal/get")
+                        .filters(filterSpec -> filterSpec.addRequestHeader("From", "chainetgw.jd.com"))
+                        .uri("http://gwdemo.jd.com:8001").order(0)
+        ).build();
+    }
 }

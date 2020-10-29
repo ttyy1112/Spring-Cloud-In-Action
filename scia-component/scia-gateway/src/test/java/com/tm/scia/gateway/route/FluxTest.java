@@ -2,12 +2,21 @@ package com.tm.scia.gateway.route;
 
 import com.github.benmanes.caffeine.cache.Caffeine;
 import com.github.benmanes.caffeine.cache.LoadingCache;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufUtil;
+import io.netty.buffer.PooledByteBufAllocator;
+import io.netty.buffer.PooledByteBufAllocatorMetric;
 import org.junit.Test;
+import org.springframework.core.io.buffer.DataBuffer;
+import org.springframework.core.io.buffer.DataBufferUtils;
+import org.springframework.core.io.buffer.NettyDataBuffer;
 import reactor.cache.CacheFlux;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.util.context.Context;
 
+import java.nio.ByteBuffer;
+import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -116,4 +125,30 @@ public class FluxTest {
         System.out.println("com.tm.scia.gateway.route.FluxTest.createExpensiveGraph");
         return Flux.range(5, 5);
     }
+
+    @Test
+    public void testFluxSubscrible() {
+        Flux<String> flux = Flux.fromArray(new String[]{"1", "2", "3"});
+        flux.subscribe(a -> System.out.println(a));
+        System.out.println("agagin");
+        flux.subscribe(a -> System.out.println(a));
+    }
+
+    @Test
+    public void testFlux() {
+        System.out.println(anotherMethod());
+
+
+    }
+
+    private String anotherMethod() {
+        StringBuilder sb = new StringBuilder();
+        Flux.just("tom", "jack", "allen")
+                .map(s -> s.concat("@qq.com"))
+                .filter(s -> s.startsWith("tom"))
+                .subscribe(item -> sb.append(item + "\n"));
+
+        return sb.toString();
+    }
+
 }

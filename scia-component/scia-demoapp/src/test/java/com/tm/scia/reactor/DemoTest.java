@@ -3,10 +3,13 @@ package com.tm.scia.reactor;
 import org.junit.Test;
 import org.springframework.boot.autoconfigure.cache.CacheProperties;
 import org.springframework.cglib.core.internal.LoadingCache;
+import org.springframework.util.CollectionUtils;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.util.context.Context;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
@@ -43,5 +46,12 @@ public class DemoTest {
 
         fluxDefer.subscribe(t -> System.out.println(t));
         fluxDefer.subscribe(t -> System.out.println("an: " + t));
+    }
+
+    @Test
+    public void testFluxWithoutSubscribe() {
+        Flux.just("tom", "jack", "allen")
+                .map(s -> s.concat("@qq.com"))
+                .filter(s -> s.startsWith("tom"));
     }
 }
