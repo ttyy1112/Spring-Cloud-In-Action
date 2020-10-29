@@ -39,7 +39,7 @@ public class DemoRouteLocatorConfiguration {
         return builder.routes().route(
                 predicateSpec -> predicateSpec.path("/game2/animal/get")
                         .filters(filterSpec -> filterSpec.addRequestHeader("From", "chainetgw.jd.com"))
-                        .uri("http://gwdemo.jd.com:8001").order(0)
+                        .uri("http://gwdemo.jd.com:1601").order(0)
         ).build();
     }
 
@@ -48,7 +48,7 @@ public class DemoRouteLocatorConfiguration {
         return builder.routes().route(
                 predicateSpec -> predicateSpec.path("/game/animal/get")
                         .filters(filterSpec -> filterSpec.addRequestHeader("From", "chainetgw.jd.com"))
-                        .uri("http://gwdemo.jd.com:8001").order(0)
+                        .uri("http://gwdemo.jd.com:1601").order(0)
         ).build();
     }
 }
