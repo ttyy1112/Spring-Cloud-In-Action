@@ -1,0 +1,23 @@
+# 当前生效的profile及include的配置文件
+spring:
+  application:
+    name: Eureka-Client
+
+# eureka
+server:
+  port: 8082
+
+eureka:
+  instance:
+    appname: Eureka-Client
+    hostname: localhost
+#    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
+
+logging:
+  level.com.netflix.eureka: OFF
+  level.com.netflix.discovery: OFF

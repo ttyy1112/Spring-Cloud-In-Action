@@ -1,0 +1,23 @@
+# 当前生效的profile及include的配置文件
+spring:
+  application:
+    name: Eureka-Register
+
+# eureka
+server:
+  port: 8080
+
+eureka:
+  instance:
+    appname: Eureka-Register
+    hostname: localhost
+#    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+  dashboard:
+    path: /eurekaui
+
+logging:
+  level.com.netflix.eureka: OFF
+  level.com.netflix.discovery: OFF
